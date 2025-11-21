@@ -41,8 +41,8 @@ export function About() {
             </ul>
 
             <a
-              href="/fernando-espinosa-salido-cv.pdf"
-              download="Fernando-Espinosa-Salido-CV.pdf"
+              href="/Fernando-Espinosa-Resume.pdf"
+              download="Fernando-Espinosa-Resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="mt-8 px-8 py-3 border-2 border-primary text-white font-bold tracking-wider hover:bg-primary transition-colors flex items-center gap-2 inline-flex"
