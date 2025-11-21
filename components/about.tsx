@@ -41,7 +41,7 @@ export function About() {
             </ul>
 
             <a
-              href="/images/fernando-espinosa-salido-cv.pdf"
+              href="/fernando-espinosa-salido-cv.pdf"
               download="Fernando-Espinosa-Salido-CV.pdf"
               target="_blank"
               rel="noopener noreferrer"
