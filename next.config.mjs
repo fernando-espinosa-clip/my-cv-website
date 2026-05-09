@@ -11,7 +11,6 @@ const securityHeaders = [
     key: 'Content-Security-Policy',
     value: [
       "default-src 'self'",
-      // React needs eval() in development for call stack reconstruction; never in production
       `script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval'" : ''}`,
       "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
       "font-src 'self' https://fonts.gstatic.com data:",
@@ -27,9 +26,6 @@ const securityHeaders = [
 const nextConfig = {
   typescript: {
     ignoreBuildErrors: false,
-  },
-  images: {
-    unoptimized: true,
   },
   async headers() {
     return [

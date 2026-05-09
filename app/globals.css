@@ -5,6 +5,10 @@
   --color-dark-bg: #1a1a1a;
   --color-dark-sidebar: #000000;
   --color-dark-card: #252525;
+  --color-dark-section: #2a2a2a;
+  --color-dark-elevated: #1f1f1f;
+  --color-dark-input: #333333;
+  --color-dark-header: #111111;
 }
 
 @layer utilities {
