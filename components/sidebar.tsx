@@ -82,6 +82,7 @@ export function Sidebar({ lang, nav }: { lang: Lang; nav: Dictionary['nav'] }) {
               src="/avatar.jpg"
               alt="Fernando Espinosa Salido"
               fill
+              sizes="96px"
               className="object-cover"
               priority
             />
