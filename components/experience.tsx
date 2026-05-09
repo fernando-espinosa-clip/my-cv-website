@@ -1,5 +1,6 @@
 "use client"
 import { Briefcase, Code, Server, Terminal } from 'lucide-react'
+import type { LucideIcon } from 'lucide-react'
 import { useLanguage } from "@/lib/i18n-context"
 
 const ExperienceItem = ({ 
@@ -13,7 +14,7 @@ const ExperienceItem = ({
   company: string; 
   period: string; 
   points: string[]; // Changed type to string array
-  icon: any 
+  icon: LucideIcon
 }) => (
   <div className="flex gap-6 group">
     <div className="flex-shrink-0 mt-1">

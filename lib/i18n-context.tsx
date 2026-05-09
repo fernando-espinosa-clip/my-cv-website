@@ -1,7 +1,7 @@
 "use client"
 
 import React, { createContext, useContext, useState, useEffect } from 'react'
-import { dictionaries, Dictionary, en, es } from './dictionaries'
+import { type Dictionary, en, es } from './dictionaries'
 
 type Language = 'en' | 'es'
 
@@ -19,9 +19,8 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     const browserLang = navigator.language.split('-')[0]
-    if (browserLang === 'es') {
-      setLanguage('es')
-    }
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    if (browserLang === 'es') setLanguage('es')
     setMounted(true)
   }, [])
 

@@ -1,9 +1,9 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useMemo } from "react"
 import Link from "next/link"
 import Image from "next/image"
-import { Menu, X, Linkedin, Github, Globe, Mail } from 'lucide-react'
+import { Menu, X, Linkedin, Github, Globe } from 'lucide-react'
 import { cn } from "@/lib/utils"
 import { useLanguage } from "@/lib/i18n-context"
 
@@ -12,14 +12,14 @@ export function Sidebar() {
   const [activeSection, setActiveSection] = useState("home")
   const { t, language, setLanguage } = useLanguage()
 
-  const navItems = [
+  const navItems = useMemo(() => [
     { name: t.nav.home, href: "#home" },
     { name: t.nav.about, href: "#about" },
     { name: t.nav.skills, href: "#skills" },
     { name: t.nav.achievements || "ACHIEVEMENTS", href: "#achievements" },
     { name: t.nav.experience, href: "#experience" },
     { name: t.nav.contact, href: "#contact" },
-  ]
+  ], [t.nav])
 
   useEffect(() => {
     const handleScroll = () => {
