@@ -1,5 +1,3 @@
-import { Briefcase, Code, Server, Terminal } from 'lucide-react'
-
 export type Dictionary = typeof en
 
 export const en = {

@@ -5,8 +5,11 @@ import { Skills } from "@/components/skills"
 import { Achievements } from "@/components/achievements"
 import { Experience } from "@/components/experience"
 import { Contact } from "@/components/contact"
+import { getDictionary } from "@/lib/get-dictionary"
 
-export default function Home() {
+export default async function Home() {
+  const { t, lang } = await getDictionary()
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Person",
@@ -14,27 +17,27 @@ export default function Home() {
     jobTitle: "Senior Full Stack Engineer",
     url: "https://fernandoespinosa.com",
     sameAs: [
-      "https://www.linkedin.com/in/fernandoespinosa",
-      "https://github.com/fernandoespinosa",
+      "https://www.linkedin.com/in/seniordeveloper1/",
+      "https://github.com/fernando-espinosa-clip",
     ],
     description: "Senior Full Stack Engineer & Tech Lead specializing in scalable solutions.",
     knowsAbout: ["React", "Node.js", "Next.js", "Cloud Architecture", "Software Engineering"],
   }
 
   return (
-    <div className="flex min-h-screen bg-[#1a1a1a]">
+    <div className="flex min-h-screen bg-dark-bg">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c') }}
       />
-      <Sidebar />
+      <Sidebar lang={lang} nav={t.nav} />
       <main className="flex-1 lg:ml-64 w-full">
-        <Hero />
-        <About />
-        <Skills />
-        <Achievements />
-        <Experience />
-        <Contact />
+        <Hero t={t.hero} />
+        <About t={t.about} />
+        <Skills t={t.skills} />
+        <Achievements t={t.achievements} />
+        <Experience t={t.experience} />
+        <Contact t={t.contact} />
       </main>
     </div>
   )

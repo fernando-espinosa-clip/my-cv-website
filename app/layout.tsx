@@ -1,7 +1,7 @@
 import type { Metadata } from "next"
 import { Inter } from 'next/font/google'
+import { headers } from 'next/headers'
 import "./globals.css"
-import { LanguageProvider } from "@/lib/i18n-context"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -21,20 +21,11 @@ export const metadata: Metadata = {
     title: "Fernando Espinosa Salido - Senior Full Stack Engineer",
     description: "Senior Full Stack Engineer & Tech Lead Portfolio. View my projects, skills, and experience.",
     siteName: "Fernando Espinosa Salido Portfolio",
-    images: [
-      {
-        url: "/og-image.jpg", // Ensure this image exists or is replaced
-        width: 1200,
-        height: 630,
-        alt: "Fernando Espinosa Salido Portfolio",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Fernando Espinosa Salido - Senior Full Stack Engineer",
     description: "Senior Full Stack Engineer & Tech Lead Portfolio. View my projects, skills, and experience.",
-    images: ["/og-image.jpg"],
   },
   robots: {
     index: true,
@@ -47,20 +38,20 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-    generator: 'v0.app'
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode
 }>) {
+  const headersList = await headers()
+  const lang = headersList.get('x-lang') === 'es' ? 'es' : 'en'
+
   return (
-    <html lang="en" className="scroll-smooth">
-      <body className={`${inter.className} bg-[#1a1a1a] text-gray-300 antialiased`}>
-        <LanguageProvider>
-          {children}
-        </LanguageProvider>
+    <html lang={lang} className="scroll-smooth">
+      <body className={`${inter.className} bg-dark-bg text-gray-300 antialiased`}>
+        {children}
       </body>
     </html>
   )
